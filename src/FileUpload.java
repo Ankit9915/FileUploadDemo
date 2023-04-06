@@ -10,6 +10,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import graphql.Assert;
+
 public class FileUpload {
 
 	public static void main(String[] args) throws InterruptedException, IOException {
@@ -47,7 +49,10 @@ public class FileUpload {
 		//Checking of file
 		File f= new File(DownloadPath+"/ankit_photu.pdf");
 		if(f.exists()) {
-			System.out.println("File is found");
+			Assert.assertTrue(f.exists());
+			if(f.delete()) 
+				System.out.println("File is deleted");
+			
 		}
 		
 		
